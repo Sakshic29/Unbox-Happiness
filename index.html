@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UnboxHappiness</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header id="navbar"></header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Filter Buttons -->
+    <section id="filters"></section>
+
+    <!-- Product Grid -->
+    <section id="product-grid" class="grid"></section>
+  </main>
+
+  <!-- Modal -->
+  <div id="product-modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="modal-close" class="close">&times;</span>
+      <img id="modal-img" src="" alt="" />
+      <h2 id="modal-name"></h2>
+      <p id="modal-description"></p>
+      <p id="modal-price"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer"></footer>
+
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
