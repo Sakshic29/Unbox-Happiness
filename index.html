@@ -1,39 +1,77 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UnboxHappiness</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unbox Happiness - Spread Joy with Hampers</title>
+  <!-- Google Fonts: Poppins for body, Playfair Display for headings -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <header id="navbar"></header>
-
-  <!-- Main Content -->
-  <main>
-    <!-- Filter Buttons -->
-    <section id="filters"></section>
-
-    <!-- Product Grid -->
-    <section id="product-grid" class="grid"></section>
-  </main>
-
-  <!-- Modal -->
-  <div id="product-modal" class="modal hidden">
-    <div class="modal-content">
-      <span id="modal-close" class="close">&times;</span>
-      <img id="modal-img" src="" alt="" />
-      <h2 id="modal-name"></h2>
-      <p id="modal-description"></p>
-      <p id="modal-price"></p>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fas fa-gift"></i> Unbox Happiness
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- Mobile menu toggle (simple responsive behavior via CSS) -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-  </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Spread Joy with Every Hamper</h1>
+      <p class="hero-subtitle">Discover thoughtfully curated gifts that bring smiles and warmth to every occasion.</p>
+      <a href="#products" class="shop-now-btn">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section id="products" class="featured-products">
+    <div class="container">
+      <h2 class="section-title">Featured Hampers</h2>
+      <div class="products-grid" id="products-grid">
+        <!-- Product cards will be dynamically inserted here by script.js -->
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer id="footer"></footer>
+  <footer id="contact" class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <p>&copy; 2023 Unbox Happiness. All rights reserved.</p>
+          <p>Contact: info@unboxhappiness.com | +1 (234) 567-8900</p>
+        </div>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-  <script src="products.js"></script>
-  <script src="script.js"></script>
+  <!-- Scripts -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>

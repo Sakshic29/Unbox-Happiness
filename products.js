@@ -1,42 +1,37 @@
+// products.js
+// Products data file: Array of hamper objects
+// Each object includes id, name, price, image (Unsplash placeholders), and description
+// Images are cropped to suitable dimensions for hampers (approx. 400x300)
+
 const products = [
   {
     id: 1,
-    name: "Wedding Anniversary Hamper",
-    description: "Best hamper for your wedding anniversary.",
-    price: "₹999",
-    category: "Gift Hamper",
-    img: "assets/images/anniversarygift.jpg"
+    name: "anniversary Gift Hamper",
+    price: 499,
+    image: "assets/images/anniversarygift.jpg",
+    description: "Indulge in a sweet assortment of premium chocolates, truffles, and treats wrapped in elegant packaging."
   },
   {
     id: 2,
-    name: "Crochet Flower pot",
-    description: "Cute liitle crochet flower pot for your loved ones!.",
-    price: "₹499",
-    category: "Crochet",
-    img: "assets/images/crochetflower.jpg"
+    name: "Wellness Hamper",
+    price: 399,
+    image: "assets/images/crochetflower.jpg",
+    description: "Relax and rejuvenate with essential oils, herbal teas, bath salts, and soothing candles for ultimate self-care."
   },
   {
     id: 3,
-    name: "Crochet Hearts Bouquet",
-    description: "Cute crochet hearts bouquet.",
-    price: "₹999",
-    category: "Crochet",
-    img: "assets/images/crochetheartsbouquet.jpg"
+    name: "crochet Hearts Bouquet",
+    price: 799,
+    image: "assets/images/crochetheartsbouquet.jpg",
+    description: "Celebrate the season with festive sweets, decorations, and traditional goodies in a vibrant gift box."
   },
   {
     id: 4,
-    name: "Rakhi Festive hamper",
-    description: "Best hamper for your Rakhi celebration.",
-    price: "₹999",
-    category: "Gift Hamper",
-    img: "assets/images/rakhihamper.jpg"
-  },
-   {
-    id: 5,
-    name: "Teddy Bear Hamper",
-    description: "Best hamper for your loved ones.",
-    price: "₹1499",
-    category: "Gift Hamper",
-    img: "assets/images/teddyhamper.jpg"
+    name: "RakshaBandhan Special Hamper",
+    price: 899,
+    image: "assets/images/rakhihamper.jpg",
+    description: "Make their day unforgettable with cupcakes, balloons, personalized cards, and fun surprises."
   }
 ];
+
+export default products;

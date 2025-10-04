@@ -1,42 +1,77 @@
-// Load Navbar and Footer
-document.getElementById("navbar").innerHTML = `<h1>Welcome to Unbox Happiness</h1>`;
-document.getElementById("footer").innerHTML = `<p>&copy; 2025 UnboxHappiness. All rights reserved.</p>`;
+// script.js
+// Main interactivity script for Unbox Happiness website
+// Imports products data and renders product cards dynamically
+// Adds hover animations and demo cart functionality
 
-// Generate Filter Buttons
-const categories = ["All", ...new Set(products.map(p => p.category))];
-const filters = document.getElementById("filters");
-filters.innerHTML = categories.map(c => `<button class="p-4 rounded-lg bg-gray cursor-pointer filter-btn">${c}</button>`).join("");
+import products from './products.js'; // Import products array from products.js
 
-// Render Products
-const productGrid = document.getElementById("product-grid");
-function renderProducts(list) {
-  productGrid.innerHTML = list.map(p => `
-    <div class="product-card p-4 rounded-lg bg-white cursor-pointer" onclick="openModal(${p.id})">
-      <img src="${p.img}" alt="${p.name}" />
-      <h3>${p.name}</h3>
-      <p>${p.price}</p>
-    </div>
-  `).join("");
+// DOM elements
+const productsGrid = document.getElementById('products-grid');
+
+// Function to render product cards
+function renderProducts() {
+  products.forEach((product) => {
+    // Create product card element
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+    productCard.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" loading="lazy">
+      <h3>${product.name}</h3>
+      <p>${product.description}</p>
+      <p class="price">${product.price.toFixed(2)}</p>
+      <button class="add-to-cart">Add to Cart</button>
+    `;
+
+    // Add hover animation (lift effect)
+    productCard.addEventListener('mouseenter', () => {
+      productCard.style.transform = 'translateY(-10px)';
+    });
+
+    productCard.addEventListener('mouseleave', () => {
+      productCard.style.transform = 'translateY(0)';
+    });
+
+    // Add click event for "Add to Cart" button (demo alert)
+    const addToCartBtn = productCard.querySelector('.add-to-cart');
+    addToCartBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent card hover from interfering
+      alert(`${product.name} added to cart! (Demo - Full cart functionality coming soon)`);
+    });
+
+    // Append to grid
+    productsGrid.appendChild(productCard);
+  });
 }
-renderProducts(products);
 
-// Filtering
-document.querySelectorAll(".filter-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const category = btn.textContent;
-    renderProducts(category === "All" ? products : products.filter(p => p.category === category));
-  });
+// Initialize on DOM load
+document.addEventListener('DOMContentLoaded', () => {
+  renderProducts();
+
+  // Optional: Smooth scroll for nav links (if needed for single-page feel)
+  const navLinks = document.querySelectorAll('.nav-menu a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Mobile hamburger toggle (basic implementation)
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  }
 });
 
-// Modal
-function openModal(id) {
-  const product = products.find(p => p.id === id);
-  document.getElementById("modal-img").src = product.img;
-  document.getElementById("modal-name").textContent = product.name;
-  document.getElementById("modal-description").textContent = product.description;
-  document.getElementById("modal-price").textContent = product.price;
-  document.getElementById("product-modal").classList.remove("hidden");
+// Error handling for import (in case products.js fails)
+if (typeof products === 'undefined') {
+  console.error('Products data not loaded. Check products.js');
+  productsGrid.innerHTML = '<p style="text-align: center; grid-column: 1/-1;">Products loading error. Please refresh.</p>';
 }
-document.getElementById("modal-close").onclick = () => {
-  document.getElementById("product-modal").classList.add("hidden");
-};
